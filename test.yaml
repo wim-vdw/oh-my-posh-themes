@@ -1,0 +1,61 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json
+final_space: true
+version: 3
+blocks:
+- type: prompt
+  alignment: left
+  leading_diamond: 
+  trailing_diamond: 
+  segments:
+  - type: os
+    style: diamond
+    foreground: "#ffffff"
+    background: "#440044"
+    template: " {{ if .WSL }}WSL at {{ end }}{{.Icon}}"
+  - type: session
+    style: diamond
+    foreground: "#ffffff"
+    background: "#440044"
+    trailing_diamond: 
+    template: " {{ if .SSHSession }}\ueba9 {{ end }}{{ .UserName }}@{{ .HostName }} "
+  - type: path
+    style: diamond
+    foreground: "#ffffff"
+    background: "#882222"
+    trailing_diamond: 
+    properties:
+      style: agnoster_short
+      max_depth: 3
+  - type: aws
+    style: diamond
+    foreground: "#000000"
+    background: "#f5ef42"
+    trailing_diamond: 
+    template: "   {{.Profile}}{{if .Region}}@{{.Region}}{{end}} "
+  - type: az
+    style: diamond
+    foreground: "#000000"
+    background: "#9ec3f0"
+    trailing_diamond: 
+    template: "   {{ .Name }} "
+  - type: kubectl
+    style: diamond
+    foreground: "#000000"
+    background: "#ebcc34"
+    trailing_diamond: 
+    template: " 󱃾 {{.Context}}{{if .Namespace}} ({{.Namespace}}){{end}} "
+    properties:
+      parse_kubeconfig: false
+- type: prompt
+  alignment: left
+  newline: true
+  segments:
+  - type: status
+    style: plain
+    foreground: "#00ff00"
+    foreground_templates:
+    - "{{ if .Error }}#ff0000{{ end }}"
+    - "{{ if gt .Code 0 }}#ff0000{{ end }}"
+    template: ❯
+    properties:
+      always_enabled: true
