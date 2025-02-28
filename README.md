@@ -1,2 +1,1 @@
-# oh-my-posh-themes
-Oh My Posh Themes
+# Oh My Posh Themes
