@@ -41,6 +41,12 @@ blocks:
       fetch_stash_count: true
       fetch_upstream_icon: true
       fetch_status: true
+- type: prompt
+  alignment: left
+  leading_diamond: 
+  trailing_diamond: 
+  newline: true
+  segments:
   - type: aws
     style: diamond
     foreground: "#000000"
